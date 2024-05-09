@@ -1,0 +1,21 @@
+  h1{
+    color: rgb(15, 136, 116);
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 8rem;
+    margin-top: 5rem;
+}
+
+body {
+    background-image: url("../lib/img/Ejercicio4.jpg");
+    background-size: cover;
+}
+
+.contenedortotal{
+    border: 3px solid rgb(0,0,0,0.5);
+    box-shadow: 5px 5px 10px rgb(52, 52, 53);
+    padding: 1.5rem;
+    border-radius: 10%;
+    margin-right: 6rem;
+}
+
