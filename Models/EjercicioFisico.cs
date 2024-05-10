@@ -22,14 +22,19 @@ namespace ProyectoClase1.Models
 
      public class VistaEjercicioFicico
      {
-          public int EjercicioFicicoId { get; set; }
-          public int TipodeEjercicioId { get; set; }
-          public string TipodeEjercicioNombre { get; set; }
-          public string FechaInicioString { get; set; }
-             public string FechaFinString { get; set; }
-           public string? Observaciones {get; set;}
-           public string EstadoInicialNombre {get; set;}
-           public string EstadoFinalNombre {get; set;}
+        public int EjercicioFicicoId { get; set; }
+        public int TipodeEjercicioId { get; set; }
+        public string TipodeEjercicioNombre { get; set; }
+        public string FechaInicioString { get; set; }
+        public string FechaFinString { get; set; }
+        public string? Observaciones {get; set;}
+        public string EstadoInicialNombre {get; set;}
+        public string EstadoFinalNombre {get; set;}
+        public DateTime Inicio { get; set; }
+        public DateTime Fin { get; set; }
+
+        public EstadoEmocional EstadoEmocionalInicio { get; set; }
+        public EstadoEmocional EstadoEmocionalFin { get; set;}
      }
 
     public enum EstadoEmocional{

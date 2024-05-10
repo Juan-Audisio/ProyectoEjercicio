@@ -75,8 +75,12 @@ public class EjerciciosFisicosController: Controller {
                 Observaciones = ejercicioFisico.Observaciones,
                 EstadoInicialNombre = ejercicioFisico.EstadoEmocionalInicio.ToString(),
                 EstadoFinalNombre = ejercicioFisico.EstadoEmocionalFin.ToString(),
-
+                Fin = ejercicioFisico.Fin,
+                Inicio = ejercicioFisico.Inicio,
+                EstadoEmocionalInicio = ejercicioFisico.EstadoEmocionalInicio,
+                EstadoEmocionalFin = ejercicioFisico.EstadoEmocionalFin,
             };
+            
             ejerciciosFisicosMostrar.Add(ejercicioFisicoMostrar);
         }
 
@@ -88,7 +92,8 @@ public class EjerciciosFisicosController: Controller {
     [HttpPost]
     public JsonResult SaveEj(int ejercicioFisicoId, int tipodeEjercicioId, DateTime inicio, DateTime fin, EstadoEmocional estadoEmocionalInicio, EstadoEmocional estadoEmocionalFin, string observaciones ){
 
-        if(ejercicioFisicoId == 0){
+        if(ejercicioFisicoId == 0)
+        {
             var nuevoEjercicio = new EjercicioFisico 
             {
               TipodeEjercicioId = tipodeEjercicioId,
@@ -97,9 +102,22 @@ public class EjerciciosFisicosController: Controller {
               EstadoEmocionalInicio = (EstadoEmocional)estadoEmocionalInicio,
               EstadoEmocionalFin = (EstadoEmocional)estadoEmocionalFin,
               Observaciones = observaciones
-            };
+            }; 
 
             _context.EjerciciosFisicos.Add(nuevoEjercicio);
+            _context.SaveChanges();
+        }
+
+        else{
+            var ejercicioaeditar = _context.EjerciciosFisicos.Where(e => e.EjercicioFisicoId == ejercicioFisicoId).SingleOrDefault();
+
+            ejercicioaeditar.TipodeEjercicioId = tipodeEjercicioId;
+            ejercicioaeditar.Inicio = inicio;
+            ejercicioaeditar.Fin = fin;
+            ejercicioaeditar.EstadoEmocionalInicio = estadoEmocionalInicio;
+            ejercicioaeditar.EstadoEmocionalFin = estadoEmocionalFin;
+            ejercicioaeditar.Observaciones = observaciones;
+
             _context.SaveChanges();
         }
 
