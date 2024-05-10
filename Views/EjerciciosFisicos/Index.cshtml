@@ -12,7 +12,7 @@
 <button type="button" class="btn btn-outline-primary" onclick="ListadoEjercicioFicico()">Listado ejercicio</button>
 <button type="button" data-bs-toggle="modal" data-bs-target="#ejercicioFicico" class="btn btn-outline-primary">ingresar</button>
 
-<div class="modal" id="ejercicioFicico" tabindex="-1">
+<div class="modal fade" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modalejerciciofisico" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -21,8 +21,7 @@
       </div>
       <form>
         <div>
-          <label for="TipoEjercicioId" class="form-label">Tipo Ejercicio ID</label>
-          <input type="text" id="TipoEjercicioId" class="form-control">
+          <input type="hidden" id="EjercicioFisicoId" value="0">
         </div>
         <div class="mb-3">
            <label for="FechaInicio" class="form-label">Fecha inicial</label>
@@ -32,10 +31,10 @@
            <label for="Fechafin" class="form-label">Fecha fin</label>
            <input type="datetime-local" id="Fechafin" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")"/>
         </div>
-        @* <div class="mb-3">
-            <label for="TipoEjercicioId" class="form-label"></label>
-            @Html.DropDownList("TipoEjercicioId", null, htmlAttributes: new { @class = "form-control" })
-        </div> *@
+         <div class="mb-3">
+            <label for="TipodeEjercicioId" class="form-label"></label>
+            @Html.DropDownList("TipodeEjercicioId", null, htmlAttributes: new { @class = "form-control" })
+        </div> 
         
 
         <div class="mb-3">
@@ -55,7 +54,7 @@
       
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-primary" onclick="GuardarEjercicioFisico()">Guardar</button>
         </div>
     </div>
   </div>

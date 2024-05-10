@@ -35,15 +35,15 @@ public class EjerciciosFisicosController: Controller {
         ViewBag.EstadoEmocionalInicio = selectListItem.OrderBy(t => t.Text).ToList();
         ViewBag.EstadoEmocionalFin = selectListItem.OrderBy(t => t.Text).ToList();
 
-        // var listaTipoEjercicio = _context.TipodeEjercicios.ToList();
+        var listaTipoEjercicio = _context.TipodeEjercicios.ToList();
         
-        // listaTipoEjercicio.Add(new TipodeEjercicio 
-        // {
-        //     TipodeEjercicioId = 0,
-        //     Nombre = "[SELECCIONE]"
-        // });
+        listaTipoEjercicio.Add(new TipodeEjercicio 
+        {
+            TipodeEjercicioId = 0,
+            Nombre = "[SELECCIONE]"
+        });
 
-        // ViewBag.TipodeEjercicioId = new SelectList(listaTipoEjercicio.OrderBy(t => t.Nombre), "TipodeEjercicoId", "Nombre");
+        ViewBag.TipodeEjercicioId = new SelectList(listaTipoEjercicio.OrderBy(t => t.Nombre), "TipodeEjercicioId", "Nombre");
 
 
         return View();
@@ -85,7 +85,26 @@ public class EjerciciosFisicosController: Controller {
 
 
 
-    public JsonResult GuardarEjercicio(){
+    [HttpPost]
+    public JsonResult SaveEj(int ejercicioFisicoId, int tipodeEjercicioId, DateTime inicio, DateTime fin, EstadoEmocional estadoEmocionalInicio, EstadoEmocional estadoEmocionalFin, string observaciones ){
+
+        if(ejercicioFisicoId == 0){
+            var nuevoEjercicio = new EjercicioFisico 
+            {
+              TipodeEjercicioId = tipodeEjercicioId,
+              Inicio = inicio,
+              Fin = fin,
+              EstadoEmocionalInicio = (EstadoEmocional)estadoEmocionalInicio,
+              EstadoEmocionalFin = (EstadoEmocional)estadoEmocionalFin,
+              Observaciones = observaciones
+            };
+
+            _context.EjerciciosFisicos.Add(nuevoEjercicio);
+            _context.SaveChanges();
+        }
+
+
+    
       return Json(true); 
     }
 

@@ -2,7 +2,7 @@ window.onload = ListadoEjercicioFicico();
 
 function ListadoEjercicioFicico() 
 {
-    console.log("Llama funcion...")
+    // $("#ejercicioFicico").modal("hide");
     $.ajax(
         {
             url: '../../EjerciciosFisicos/ListadoEjercicioFisico',
@@ -44,6 +44,36 @@ function ListadoEjercicioFicico()
         }
     )
     
-
+  
    
+}
+
+function GuardarEjercicioFisico() {
+    var ejercicioFisicoID = document.getElementById("EjercicioFisicoId").value;
+    var tipodeEjercicioId = document.getElementById("TipodeEjercicioId").value;
+    var inicio = document.getElementById("FechaInicio").value;
+    var fin = document.getElementById("Fechafin").value;
+    var estadoEmocionalInicio = document.getElementById("EstadoEmocionalInicio").value;
+    var estadoEmocionalFin = document.getElementById("EstadoEmocionalFin").value;
+    var observaciones = document.getElementById("Observaciones").value
+
+    console.log(ejercicioFisicoID, tipodeEjercicioId, inicio, fin, estadoEmocionalInicio, estadoEmocionalFin, observaciones)
+    
+    $.ajax({
+        url: "../../EjerciciosFisicos/SaveEj",
+        data: {ejercicioFisicoID, tipodeEjercicioId, inicio, fin, estadoEmocionalInicio, estadoEmocionalFin, observaciones},
+        type: 'POST',
+        dataType: 'json',
+
+        success: function(resultado){
+            if(resultado == true){
+
+                ListadoEjercicioFicico();
+            }
+        },
+
+        error: function(hxr, status){
+            alert("error al guardar ejercicio")
+        }
+    })
 }

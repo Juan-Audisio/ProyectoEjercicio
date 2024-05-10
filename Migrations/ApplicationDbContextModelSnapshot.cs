@@ -250,17 +250,14 @@ namespace ProyectoClase1.Migrations
                     b.Property<int>("TipodeEjercicioId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipodeEjercicosTipodeEjercicioId")
-                        .HasColumnType("int");
-
                     b.HasKey("EjercicioFisicoId");
 
-                    b.HasIndex("TipodeEjercicosTipodeEjercicioId");
+                    b.HasIndex("TipodeEjercicioId");
 
                     b.ToTable("EjerciciosFisicos");
                 });
 
-            modelBuilder.Entity("ProyectoClase1.Models.TipodeEjercico", b =>
+            modelBuilder.Entity("ProyectoClase1.Models.TipodeEjercicio", b =>
                 {
                     b.Property<int>("TipodeEjercicioId")
                         .ValueGeneratedOnAdd()
@@ -332,16 +329,16 @@ namespace ProyectoClase1.Migrations
 
             modelBuilder.Entity("ProyectoClase1.Models.EjercicioFisico", b =>
                 {
-                    b.HasOne("ProyectoClase1.Models.TipodeEjercico", "TipodeEjercicos")
+                    b.HasOne("ProyectoClase1.Models.TipodeEjercicio", "TipodeEjercicios")
                         .WithMany("EjerciciosFisicos")
-                        .HasForeignKey("TipodeEjercicosTipodeEjercicioId")
+                        .HasForeignKey("TipodeEjercicioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("TipodeEjercicos");
+                    b.Navigation("TipodeEjercicios");
                 });
 
-            modelBuilder.Entity("ProyectoClase1.Models.TipodeEjercico", b =>
+            modelBuilder.Entity("ProyectoClase1.Models.TipodeEjercicio", b =>
                 {
                     b.Navigation("EjerciciosFisicos");
                 });
