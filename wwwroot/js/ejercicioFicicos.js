@@ -2,7 +2,6 @@ window.onload = ListadoEjercicioFicico();
 
 function ListadoEjercicioFicico() 
 {
-    //$("#ejercicioFicico").modal("hide");
     $.ajax(
         {
             url: '../../EjerciciosFisicos/ListadoEjercicioFisico',
@@ -13,10 +12,9 @@ function ListadoEjercicioFicico()
             success: function(ejerciciosFisicos)
             {
              let contenidoTablaListadoEjercicio = '';
-             console.log("Correcto")
+        
               $.each(ejerciciosFisicos, function(index, ejercicioFisico)
               {
-                console.log(ejercicioFisico)
                  contenidoTablaListadoEjercicio +=
                  `
                  <tr>
@@ -30,16 +28,21 @@ function ListadoEjercicioFicico()
                  <td>${ejercicioFisico.observaciones  }</td>
                 <td>
                    <button type="button" class="btn btn-success" onclick="AbrirModalEditar(${ejercicioFisico.ejercicioFicicoId})">Editar</button>
-                  <button type="button" class="btn btn-danger" onclick="EliminarRegistro(${ejercicioFisico.ejercicioFisicoID})">Eliminar</button>
+                  <button type="button" class="btn btn-danger" onclick="EliminarEjercicio(${ejercicioFisico.ejercicioFicicoId})">Eliminar</button>
                  </td>
             </tr>
   
                  `;
+
               });
               document.getElementById("tbody-listadoEjercicioFisico").innerHTML = contenidoTablaListadoEjercicio;
+              $("#ejercicioFicico").modal("hide");
+              
             },
+
             error: function(xhr, status)
             {
+            
              alert('Disculpe, tenemos un problema en insatantes sera reparado')   
             }
         }
@@ -58,7 +61,6 @@ function GuardarEjercicioFisico() {
     var estadoEmocionalFin = document.getElementById("EstadoEmocionalFin").value;
     var observaciones = document.getElementById("Observaciones").value
     
-    console.log(ejercicioFisicoID)
     $.ajax({
         url: "../../EjerciciosFisicos/SaveEj",
         data: {ejercicioFisicoID, tipodeEjercicioId, inicio, fin, estadoEmocionalInicio, estadoEmocionalFin, observaciones},
@@ -101,11 +103,25 @@ function AbrirModalEditar(ejercicioFisicoID){
 
 
             $("#ejercicioFicico").modal("show");
-
-
-
         }
-
-
     })
 }
+
+function EliminarEjercicio(ejercicioFisicoID){
+    $.ajax({
+        url: '../../EjerciciosFisicos/DeleteEJ',
+        data: {id:ejercicioFisicoID},
+        type: 'DELETE',
+        dataType: 'Json',
+        success: function(resultado){
+            if(resultado == true){
+
+                ListadoEjercicioFicico();
+            }
+        },
+        error: function(hxr, status){
+            alert("error al eliminar el ejercicio")
+        }
+    })
+}
+

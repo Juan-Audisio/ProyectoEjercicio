@@ -80,7 +80,7 @@ public class EjerciciosFisicosController: Controller {
                 EstadoEmocionalInicio = ejercicioFisico.EstadoEmocionalInicio,
                 EstadoEmocionalFin = ejercicioFisico.EstadoEmocionalFin,
             };
-            
+
             ejerciciosFisicosMostrar.Add(ejercicioFisicoMostrar);
         }
 
@@ -120,10 +120,16 @@ public class EjerciciosFisicosController: Controller {
 
             _context.SaveChanges();
         }
-
-
-    
       return Json(true); 
+    }
+    public JsonResult DeleteEJ(int id){
+
+        var ejercicioaEliminar = _context.EjerciciosFisicos.Where(e => e.EjercicioFisicoId == id).SingleOrDefault();
+
+        _context.Remove(ejercicioaEliminar);
+        _context.SaveChanges();
+
+        return Json(true);
     }
 
 }
