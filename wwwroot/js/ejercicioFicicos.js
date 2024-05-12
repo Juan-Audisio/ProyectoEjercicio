@@ -18,19 +18,19 @@ function ListadoEjercicioFicico()
                  contenidoTablaListadoEjercicio +=
                  `
                  <tr>
-                    
-                 <td>${ (ejercicioFisico.tipodeEjercicioNombre)}</td>
+                    <td>${ (ejercicioFisico.tipodeEjercicioNombre)}</td>
                     <td>${ (ejercicioFisico.fechaInicioString)}</td>
-                 <td>${ (ejercicioFisico.fechaFinString)}</td>
-           
+                    <td>${ (ejercicioFisico.fechaFinString)}</td>
                     <td>${ejercicioFisico.estadoInicialNombre}</td>
-                   <td>${ejercicioFisico.estadoFinalNombre}</td>
-                 <td>${ejercicioFisico.observaciones  }</td>
-                <td>
-                   <button type="button" class="btn btn-success" onclick="AbrirModalEditar(${ejercicioFisico.ejercicioFicicoId})">Editar</button>
-                  <button type="button" class="btn btn-danger" onclick="EliminarEjercicio(${ejercicioFisico.ejercicioFicicoId})">Eliminar</button>
-                 </td>
-            </tr>
+                    <td>${ejercicioFisico.estadoFinalNombre}</td>
+                    <td>${ejercicioFisico.observaciones  }</td>
+                    <td>
+                       <button type="button" class="btn btn-success" onclick="AbrirModalEditar(${ejercicioFisico.ejercicioFicicoId})">Editar</button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-danger" onclick="EliminarEjercicio(${ejercicioFisico.ejercicioFicicoId})">Eliminar</button>
+                    </td>
+                </tr>
   
                  `;
 

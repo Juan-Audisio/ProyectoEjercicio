@@ -1,14 +1,14 @@
   h1{
-    color: rgb(15, 136, 116);
     text-align: center;
-    font-size: 3rem;
+    font-size: 5rem;
     margin-bottom: 8rem;
     margin-top: 5rem;
 }
 
 body {
-    background-image: url("../lib/img/Ejercicio4.jpg");
+    background-image: url("../lib/img/Fondo3.jpg");
     background-size: cover;
+    height: 100%;
 }
 
 .contenedortotal{
@@ -16,6 +16,27 @@ body {
     box-shadow: 5px 5px 10px rgb(52, 52, 53);
     padding: 1.5rem;
     border-radius: 10%;
-    margin-right: 6rem;
+    margin-right: 6rem; 
+    background-color: rgba(6, 131, 127, 0.788);
 }
+
+.fondoBienvenido{
+    margin-top: 2rem;
+    letter-spacing: 2px;
+    color: rgb(3, 6, 9);
+    background-color: rgba(6, 131, 126, 0.676);
+    border: 3px solid rgb(0,0,0,0.5); 
+    border-radius: 40%;
+    box-shadow: 5px 5px 10px rgb(52, 52, 53);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.modal{
+    background-color: blue;
+}
+
+
+
+
 

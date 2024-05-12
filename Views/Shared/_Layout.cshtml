@@ -8,32 +8,31 @@
     <link rel="stylesheet" href="~/lib/fontawesome-free-6.5.2-web/css/all.min.css"/>
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
     <link rel="stylesheet" href="~/ProyectoClase1.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+    <header class="">
+        <nav class=" navegador navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3 ">
+            <div class="container-fluid ">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProyectoClase1</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     <ul class="navbar-nav flex-grow-1">
                         @if (User.Identity.IsAuthenticated){
                             <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house" alt="hola"></i></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i> Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="TipodeEjercicio" asp-action="Index"><i class="fa-solid fa-person-walking"></i></a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TipodeEjercicio" asp-action="Index"><i class="fa-solid fa-person-walking"></i> Tipo Ejercicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="EjerciciosFisicos" asp-action="Index"><i class="fa-solid fa-dumbbell"></i></a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="EjerciciosFisicos" asp-action="Index"><i class="fa-solid fa-dumbbell"></i> Ejercicio Fisico</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-shield-halved"></i></a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-shield-halved"></i>Privado</a>
                             </li>
                         }
                         
@@ -50,7 +49,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class=" footer">
         <div class="container">
             &copy; 2024 - ProyectoClase1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

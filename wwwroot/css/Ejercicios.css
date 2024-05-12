@@ -1,20 +1,38 @@
 body{
-    background-image: url("../lib/img/Fondo.jpg");
-    background-size: cover;
+    background-color: rgb(194, 219, 241);
+     
+    background-size: cover; 
 }
 
 td{
     color: azure;
-    font-size: x-large;
+    font-size: large;
     font-family: arial;
 }
 
 th{
-    color:rgb(225, 229, 233);
-    font-size: xx-large;
+    color:rgb(225, 232, 233);
+    font-size: x-large;
     font-family: arial;
 }
- h1{
-    color: rgb(225, 229, 233);
-} 
+ 
 
+.fondoBienvenido{
+    margin-top: 2rem;
+    letter-spacing: 2px;
+    color: rgb(3, 6, 9);
+    background-color: rgba(6, 131, 126, 0.676);
+    text-align: center;
+}
+
+p{
+    letter-spacing: 2px;
+}
+
+.fondobienvenidos{
+    background-image: url("../lib/img/Fondo4.jpg");
+}
+
+.hola{
+  background-color:   rgba(6, 131, 127, 0.25);
+}
