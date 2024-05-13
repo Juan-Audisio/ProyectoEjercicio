@@ -29,10 +29,15 @@ p{
     letter-spacing: 2px;
 }
 
-.fondobienvenidos{
-    background-image: url("../lib/img/Fondo4.jpg");
-}
-
 .hola{
   background-color:   rgba(6, 131, 127, 0.25);
 }
+
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
